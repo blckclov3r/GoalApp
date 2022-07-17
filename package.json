@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run client\" \"npm run server\""   
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.4",
     "nodemon": "^2.0.19"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2"
   }
 }
