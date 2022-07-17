@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+body{
+  background: #f1f1f1;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+.App{
+  background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.4)),url('https://raw.githubusercontent.com/blckclov3r/blckclov3r.github.io/master/public/bgslash.webp');
+  background-size: auto;
+  height: 100vh;
+}
+
+a{
+  text-decoration: none;
+}
