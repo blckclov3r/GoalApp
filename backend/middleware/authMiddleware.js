@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler')
 const User = require('../model/userModel')
 
 const protect = asyncHandler(async (req,res,next)=>{
-    let token = null;
+    let token;
 
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
     {
@@ -18,7 +18,7 @@ const protect = asyncHandler(async (req,res,next)=>{
         
             // get user find by decoded id  | select not include the password
             req.user = await User.findById(decoded.id).select('-password');
-           
+            
             next()
         }catch(err){
             console.log('protect',err)

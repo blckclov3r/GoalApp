@@ -6,6 +6,7 @@ import { login, reset } from "../features/auth/authSlice";
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import Spinner from "../components/Spinner";
+import {reset as goalReset} from '../features/goals/goalSlice'
 
 export default function Login() {
 
@@ -16,6 +17,12 @@ export default function Login() {
     (state) => state.auth
   )
 
+  useEffect(() => {
+    
+    if(user){
+      navigate('/');
+    }
+  }, [user,navigate]);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -44,10 +51,13 @@ export default function Login() {
 
   const onLoginSubmit = (e) =>{
     e.preventDefault();
-
+    if(email === '' || password === ''){
+      return;
+    }
     const userData = {
       email,password
     }
+    dispatch(goalReset())
     dispatch(login(userData))
   }
 

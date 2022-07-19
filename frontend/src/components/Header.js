@@ -2,7 +2,9 @@ import React from 'react'
 import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {logout,reset} from '../features/auth/authSlice'
+import {logout,reset} from '../features/auth/authSlice';
+import {reset as goalReset} from '../features/goals/goalSlice'
+import {reset as authReset} from '../features/auth/authSlice'
 
 export default function Header() {
     const navigate = useNavigate();
@@ -13,12 +15,14 @@ export default function Header() {
         dispatch(logout());
         dispatch(reset());
         navigate('/');
+        dispatch(goalReset())
+        dispatch(authReset())
     }
 
     return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
                 <div className="container">
-                    <Link to="/" className="navbar-brand"><h1 className='fs-2'>Goal Setter</h1></Link>
+                    <Link to="/" className="navbar-brand"><h1>Goal Setter</h1></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
