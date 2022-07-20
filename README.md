@@ -7,3 +7,7 @@ demo: https://g0alsetter.herokuapp.com/
 
 ## License
 <a href='https://github.com/blckclov3r/GoalApp/blob/master/LICENSE'>MIT</a>
+
+
+## License
+* [MIT](LICENSE)
